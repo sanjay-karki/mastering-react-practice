@@ -1,0 +1,117 @@
+@use "./vars" as *;
+
+@mixin gradientLinear($argument1: to right) {
+  background: var(--theme-color);
+  background: linear-gradient(
+    $argument1,
+    #800080 0%,
+    #c21170 44%,
+    #ed4c5c 58%,
+    #ff864c 72%,
+    #ffc04e 99%,
+    #cfcf00 100%
+  );
+}
+
+@mixin textGradient($argument: to right) {
+  @include gradientLinear($argument);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin forPopUp() {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  padding: 1rem;
+  background-color: #f2f1fd;
+  border: solid 0.2rem hsl(300, 100%, 20%);
+  border-radius: 0.5rem;
+  box-shadow: 0.6rem 0.6rem 0 0 hsl(300, 100%, 20%);
+}
+
+@mixin forBigButton() {
+  background-color: var(--theme-color);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: solid 0.15rem transparent;
+  border-radius: 0.25rem;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem 1rem;
+  &:hover {
+    color: var(--theme-color);
+    background-color: white;
+    border: solid 0.15rem var(--theme-color);
+  }
+  &:active {
+    transform: scale(0.9);
+    background-color: var(--theme-color);
+    color: white;
+  }
+}
+
+@mixin flexy($flex-direction: row) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@mixin forSmallHeading() {
+  display: table;
+  color: white;
+  background-color: hsl(300, 34%, 55%);
+  margin-top: 2rem;
+  padding: 0.2rem 0.6rem 0.2rem 0;
+}
+
+@mixin forLabelSpan() {
+  font-weight: 500;
+  background-color: var(--theme-color);
+  color: white;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+}
+@mixin forLabelInput() {
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem;
+  text-align: left;
+  background-color: #f2f1fd;
+  border-color: var(--theme-color);
+  border-radius: 0.2rem;
+  &:hover {
+    background-color: #e8e6ff;
+  }
+}
+
+@mixin forProductCard() {
+  background-color: white;
+  width: 15rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.4rem 0rem rgba(0, 0, 0, 0.4);
+  gap: 0rem !important;
+  transition: all 0.2s ease-in-out;
+  padding: 0; 
+  cursor: pointer; 
+}
+
+@mixin textWithLineClamp($argument: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $argument; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+@mixin inactivePage() {
+  opacity: 0.5;
+  filter: blur(0.2rem);
+  pointer-events: none;
+}

@@ -1,0 +1,82 @@
+@use "../Abstracts/mixins" as m;
+@use "../Abstracts/vars" as *;
+
+.product-details-container {
+  @include m.forPopUp();
+  background-color: white;
+  width: 75vw;
+  height: 66vh;
+  max-height: 85vh;
+  padding: 0 !important;
+  .product-modularPopUp {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1rem;
+    height: 100%;
+    padding: 1.5rem 1rem;
+    overflow: auto;
+    :first-child {
+      align-self: center;
+      img {
+        width: 100%;
+        object-fit: contain;
+        max-height: 50vh;
+        border-radius: 0.5rem;
+      }
+    }
+    div:nth-child(2) {
+      @include m.flexy(column);
+      align-self: center;
+      height: 100%;
+      background-color: #f2f1fd;
+      border-radius: 0.5rem;
+      padding: 1rem 2rem;
+      h2 {
+        @include m.textGradient();
+        font-size: 1.7rem;
+      }
+      p {
+        color: var(--theme-color);
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin: 1rem 0 0rem;
+      }
+      span {
+        line-height: 1.8;
+        font-size: 1.1rem;
+        text-align: left;
+      }
+      div {
+        @include m.flexy();
+        flex-wrap: wrap;
+        margin: 2.5rem 0 1rem;
+        h4 {
+          @include m.forSmallHeading();
+          margin: 0;
+          border-radius: 0.5rem;
+          padding: 0.2rem 0.6rem;
+        }
+      }
+    }
+    @media screen and (max-width: "800px") {
+      grid-template-columns: auto;
+    }
+  }
+  .close-box {
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    button {
+      @include m.forBigButton();
+      padding: 0 0.33rem;
+      box-shadow: 0 0 0.55rem 0 rgb(99, 99, 99);
+      .close-box-icon {
+        font-size: 2.75rem;
+        justify-self: center;
+      }
+    }
+  }
+  @media screen and (max-width: "600px") {
+    width: 85%;
+  }
+}

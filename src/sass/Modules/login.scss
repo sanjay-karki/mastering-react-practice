@@ -1,0 +1,32 @@
+@use "../Abstracts/mixins" as m;
+@use "../Abstracts/vars" as *;
+
+h1 {
+  @include m.textGradient();
+  font-size: 4rem;
+}
+.view-info {
+  font-size: 2.2rem;
+  text-decoration: underline dotted;
+  color: var(--theme-color);
+  padding: 0 0.5rem;
+  &:hover {
+    background-color: var(--theme-color);
+    color: white;
+  }
+}
+.logout-btn {
+  @include m.forBigButton();
+  margin-top: 5rem;
+}
+
+.logout-confirm-container {
+  @include m.forPopUp();
+  padding: 2rem;
+  button {
+    @include m.forBigButton();
+  }
+  @media screen and (max-width: "800px") {
+    width: 66%;
+  }
+}

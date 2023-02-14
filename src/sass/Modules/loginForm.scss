@@ -1,0 +1,25 @@
+@use '../Abstracts/mixins' as m;
+@use '../Abstracts/vars' as *;
+
+.login-form {
+  @include m.flexy(column);
+  background-color: #f2f1fd;
+  box-shadow: 0rem 0rem 0.5rem 0rem hsl(300, 14%, 31%);
+  border-radius: 0.5rem;
+  padding: 2rem 5rem;
+  width: max-content;
+  margin: 5rem auto;
+  h2 {
+    color: var(--theme-color);
+  }
+  input {
+    font-size: 1.2rem;
+  }
+  .submit-btn {
+    @include m.forBigButton();
+    margin: 0.5rem 0;
+  }
+  @media screen and (max-width: "600px") {
+    padding: 2rem;
+  }
+}

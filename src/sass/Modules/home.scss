@@ -1,0 +1,35 @@
+@use "../Abstracts/mixins" as m;
+
+main {
+  width: 70vw;
+  margin-inline: auto;
+  h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    @include m.textGradient();
+  }
+
+  h2 {
+    display: table;
+    margin: auto;
+    padding: 0 0.2rem;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(226, 140, 226);
+    margin-bottom: 2.2rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    text-align: left;
+    margin-bottom: 3.3rem;
+    line-height: 1.8;
+  }
+
+  @media screen and  (max-width: 700px) {
+    width: 85vw;
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}

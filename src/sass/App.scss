@@ -1,0 +1,40 @@
+@use './Abstracts/mixins' as m;
+
+@use './Modules/home.scss';
+@use './Modules/navbar.scss';
+@use './Modules/loginForm.scss';
+@use './Modules/login.scss';
+@use './Modules/infoComponent.scss';
+@use './Modules/modularBox.scss';
+@use './Modules/tableWithPagination.scss';
+@use './Modules/products.scss';
+@use './Modules/product.scss';
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.inactive-container {
+  @include m.inactivePage();
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+.loading {
+  @include m.textGradient(to bottom);
+}

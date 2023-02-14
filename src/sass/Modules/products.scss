@@ -1,0 +1,108 @@
+@use "../Abstracts/mixins" as m;
+
+.product-page-container {
+  margin-bottom: 4rem;
+  h1 {
+    margin-bottom: 4rem;
+  }
+  .no-data {
+    width: 70vw;
+    margin: 0 auto;
+  }
+  .filter-products-container {
+    @include m.flexy();
+    justify-content: space-between;
+    margin: 0 auto 2rem;
+    width: 70vw;
+    padding: 0 0.5rem;
+    label {
+      span {
+        @include m.forLabelSpan();
+      }
+      input {
+        @include m.forLabelInput();
+        width: 7rem;
+      }
+    }
+    div {
+      @include m.flexy();
+      select {
+        @include m.forLabelInput();
+        cursor: pointer;
+      }
+      .reset-filters {
+        @include m.forBigButton();
+        padding: 0.2rem 0.5rem;
+        margin: 0 !important;
+        border-radius: 0;
+      }
+    }
+    @media screen and (max-width: "1045px") {
+      width: 95vw;
+      @include m.flexy(column);
+    }
+  }
+  .products-container {
+    @include m.flexy();
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 75vw;
+    @media screen and (max-width: "1045px") {
+      width: 95vw;
+    }
+    .product-link {
+      text-decoration: none;
+      .product-card {
+        @include m.flexy(column);
+        @include m.forProductCard();
+        img {
+          width: 10rem;
+          height: 10rem;
+          object-fit: contain;
+          border-radius: 0.5rem;
+          padding: 0;
+        }
+        .product-title {
+          @include m.textWithLineClamp(2);
+          color: rgb(27, 27, 27);
+          font-weight: 600;
+          margin: 1rem 0.5rem;
+          padding: 0 0.3rem;
+        }
+        div {
+          @include m.flexy();
+          justify-content: space-between !important;
+          .product-category {
+            color: grey;
+            font-size: small;
+            margin-bottom: 0.8rem;
+          }
+          .product-price {
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: green;
+          }
+        }
+        .product-rating,
+        .product-rating-count {
+          font-size: small;
+        }
+
+        .product-rating {
+          color: #ed4c5c;
+        }
+        .product-rating-count {
+          color: #808080;
+        }
+        &:hover {
+          transform: scale(1.03);
+          box-shadow: 0 0 0.75rem 0rem rgba(0, 0, 0, 0.55);
+          .product-title {
+            color: #ed4c5c;
+          }
+        }
+      }
+    }
+  }
+}

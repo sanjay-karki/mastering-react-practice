@@ -1,0 +1,63 @@
+@use "../Abstracts/mixins" as m;
+@use "../Abstracts/vars" as *;
+
+.modularBox, .deleteUser-container {
+  @include m.forPopUp();
+  margin-top: 1.6rem;
+  p {
+    font-size: 1.2rem;
+    margin: 1rem 1rem 1.5rem;
+    font-weight: 500;
+  }
+  button {
+    @include m.forBigButton();
+  }
+
+  .editUserForm-container {
+    h2 {
+      color: var(--theme-color);
+    }
+    img {
+      border-radius: 50%;
+      border: 0.1rem solid hsl(0, 0%, 23%);
+      box-shadow: 0.2rem 0.2rem 0 0 hsl(300, 100%, 20%);
+      margin: 0.8rem 0;
+      width: 8.5rem;
+      height: 8.5rem;
+    }
+    .editUserForm {
+      @include m.flexy(column);
+      label {
+        @include m.flexy();
+        span {
+          font-size: 0.9rem;
+        }
+        input {
+          text-align: left;
+          padding: 0rem 0.4rem;
+          height: 1.8rem;
+          font-size: 0.8rem;
+        }
+        label {
+          gap: 0.2rem;
+          margin: 0 0.5rem;
+          label {
+            span {
+              font-size: 0.8rem;
+            }
+          }
+        }
+        .countryDropdown {
+          padding: 0 1rem;
+          height: 1.8rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+.deleteUser-container {
+  @media screen  and (max-width: "600px") {
+    width: 80%;
+  }
+}
